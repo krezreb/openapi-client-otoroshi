@@ -1,0 +1,3264 @@
+# openapi_client.ServicesApi
+
+All URIs are relative to *http://otoroshi-api.oto.tools:8080*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**otoroshi_controllers_adminapi_analytics_controller_service_events**](ServicesApi.md#otoroshi_controllers_adminapi_analytics_controller_service_events) | **GET** /api/services/{serviceId}/events | Events for a service
+[**otoroshi_controllers_adminapi_analytics_controller_service_response_time**](ServicesApi.md#otoroshi_controllers_adminapi_analytics_controller_service_response_time) | **GET** /api/services/{serviceId}/response | Response time statistics for a service
+[**otoroshi_controllers_adminapi_analytics_controller_service_stats**](ServicesApi.md#otoroshi_controllers_adminapi_analytics_controller_service_stats) | **GET** /api/services/{serviceId}/stats | Statistics for a service
+[**otoroshi_controllers_adminapi_analytics_controller_service_status**](ServicesApi.md#otoroshi_controllers_adminapi_analytics_controller_service_status) | **GET** /api/services/{serviceId}/status | Status of a service over time
+[**otoroshi_controllers_adminapi_canary_controller_reset_service_canary_members**](ServicesApi.md#otoroshi_controllers_adminapi_canary_controller_reset_service_canary_members) | **DELETE** /api/services/{serviceId}/canary | Reset members of a canary campaign
+[**otoroshi_controllers_adminapi_canary_controller_service_canary_members**](ServicesApi.md#otoroshi_controllers_adminapi_canary_controller_service_canary_members) | **GET** /api/services/{serviceId}/canary | Get members of a canary campaign
+[**otoroshi_controllers_adminapi_services_controller_bulk_create_action**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_bulk_create_action) | **POST** /api/services/_bulk | Create multiple ServiceDescriptors at the same time
+[**otoroshi_controllers_adminapi_services_controller_bulk_delete_action**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_bulk_delete_action) | **DELETE** /api/services/_bulk | Delete multiple ServiceDescriptors at the same time
+[**otoroshi_controllers_adminapi_services_controller_bulk_patch_action**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_bulk_patch_action) | **PATCH** /api/services/_bulk | Update (using json-patch) multiple ServiceDescriptors at the same time
+[**otoroshi_controllers_adminapi_services_controller_bulk_update_action**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_bulk_update_action) | **PUT** /api/services/_bulk | Update multiple ServiceDescriptors at the same time
+[**otoroshi_controllers_adminapi_services_controller_create_action**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_create_action) | **POST** /api/services | Creates a ServiceDescriptor
+[**otoroshi_controllers_adminapi_services_controller_create_service_template**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_create_service_template) | **POST** /api/services/{serviceId}/template | Creates an error template for the current service
+[**otoroshi_controllers_adminapi_services_controller_delete_entity_action**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_delete_entity_action) | **DELETE** /api/services/{id} | Deletes a specific ServiceDescriptor using its id
+[**otoroshi_controllers_adminapi_services_controller_delete_service_template**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_delete_service_template) | **DELETE** /api/services/{serviceId}/template | Deletes the error template for the current service
+[**otoroshi_controllers_adminapi_services_controller_find_all_entities_action**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_find_all_entities_action) | **GET** /api/services | Find all possible ServiceDescriptors entities
+[**otoroshi_controllers_adminapi_services_controller_find_entity_by_id_action**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_find_entity_by_id_action) | **GET** /api/services/{id} | Find a specific ServiceDescriptor using its id
+[**otoroshi_controllers_adminapi_services_controller_patch_entity_action**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_patch_entity_action) | **PATCH** /api/services/{id} | Updates (using json-patch) a specific ServiceDescriptor using its id
+[**otoroshi_controllers_adminapi_services_controller_service_add_target**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_service_add_target) | **POST** /api/services/{serviceId}/targets | Adds a target to the current service
+[**otoroshi_controllers_adminapi_services_controller_service_delete_target**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_service_delete_target) | **DELETE** /api/services/{serviceId}/targets | Deletes a target to the current service
+[**otoroshi_controllers_adminapi_services_controller_service_health**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_service_health) | **GET** /api/services/{serviceId}/health | Get healthcheck status for the current service
+[**otoroshi_controllers_adminapi_services_controller_service_targets**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_service_targets) | **GET** /api/services/{serviceId}/targets | Get targets of the current service
+[**otoroshi_controllers_adminapi_services_controller_service_template**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_service_template) | **GET** /api/services/{serviceId}/template | Get the error template for the current service
+[**otoroshi_controllers_adminapi_services_controller_update_entity_action**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_update_entity_action) | **PUT** /api/services/{id} | Updates a specific ServiceDescriptor using its id
+[**otoroshi_controllers_adminapi_services_controller_update_service_targets**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_update_service_targets) | **PATCH** /api/services/{serviceId}/targets | Update the target of the current service
+[**otoroshi_controllers_adminapi_services_controller_update_service_template**](ServicesApi.md#otoroshi_controllers_adminapi_services_controller_update_service_template) | **PUT** /api/services/{serviceId}/template | Update the error template of the current service
+[**otoroshi_controllers_adminapi_stats_controller_service_live_stats_services**](ServicesApi.md#otoroshi_controllers_adminapi_stats_controller_service_live_stats_services) | **GET** /api/services/{serviceId}/live | Get live stats for a specific service
+[**otoroshi_controllers_adminapi_templates_controller_initiate_service_services**](ServicesApi.md#otoroshi_controllers_adminapi_templates_controller_initiate_service_services) | **GET** /api/services/_template | Creates a new Service from a template
+
+
+# **otoroshi_controllers_adminapi_analytics_controller_service_events**
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} otoroshi_controllers_adminapi_analytics_controller_service_events(service_id)
+
+Events for a service
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    service_id = "serviceId_example" # str | the serviceId parameter
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Events for a service
+        api_response = api_instance.otoroshi_controllers_adminapi_analytics_controller_service_events(service_id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_analytics_controller_service_events: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| the serviceId parameter |
+
+### Return type
+
+**{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_analytics_controller_service_response_time**
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} otoroshi_controllers_adminapi_analytics_controller_service_response_time(service_id)
+
+Response time statistics for a service
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    service_id = "serviceId_example" # str | the serviceId parameter
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Response time statistics for a service
+        api_response = api_instance.otoroshi_controllers_adminapi_analytics_controller_service_response_time(service_id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_analytics_controller_service_response_time: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| the serviceId parameter |
+
+### Return type
+
+**{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_analytics_controller_service_stats**
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} otoroshi_controllers_adminapi_analytics_controller_service_stats(service_id)
+
+Statistics for a service
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    service_id = "serviceId_example" # str | the serviceId parameter
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Statistics for a service
+        api_response = api_instance.otoroshi_controllers_adminapi_analytics_controller_service_stats(service_id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_analytics_controller_service_stats: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| the serviceId parameter |
+
+### Return type
+
+**{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_analytics_controller_service_status**
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} otoroshi_controllers_adminapi_analytics_controller_service_status(service_id)
+
+Status of a service over time
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    service_id = "serviceId_example" # str | the serviceId parameter
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Status of a service over time
+        api_response = api_instance.otoroshi_controllers_adminapi_analytics_controller_service_status(service_id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_analytics_controller_service_status: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| the serviceId parameter |
+
+### Return type
+
+**{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_canary_controller_reset_service_canary_members**
+> Done otoroshi_controllers_adminapi_canary_controller_reset_service_canary_members(service_id)
+
+Reset members of a canary campaign
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.done import Done
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    service_id = "serviceId_example" # str | the serviceId parameter
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Reset members of a canary campaign
+        api_response = api_instance.otoroshi_controllers_adminapi_canary_controller_reset_service_canary_members(service_id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_canary_controller_reset_service_canary_members: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| the serviceId parameter |
+
+### Return type
+
+[**Done**](Done.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_canary_controller_service_canary_members**
+> Any otoroshi_controllers_adminapi_canary_controller_service_canary_members(service_id)
+
+Get members of a canary campaign
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.any import Any
+from openapi_client.model.error_response import ErrorResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    service_id = "serviceId_example" # str | the serviceId parameter
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get members of a canary campaign
+        api_response = api_instance.otoroshi_controllers_adminapi_canary_controller_service_canary_members(service_id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_canary_controller_service_canary_members: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| the serviceId parameter |
+
+### Return type
+
+[**Any**](Any.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_bulk_create_action**
+> BulkResponseBody otoroshi_controllers_adminapi_services_controller_bulk_create_action(body)
+
+Create multiple ServiceDescriptors at the same time
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.bulk_response_body import BulkResponseBody
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    body = "body_example" # str | request body
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Create multiple ServiceDescriptors at the same time
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_bulk_create_action(body)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_bulk_create_action: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **str**| request body |
+
+### Return type
+
+[**BulkResponseBody**](BulkResponseBody.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_bulk_delete_action**
+> BulkResponseBody otoroshi_controllers_adminapi_services_controller_bulk_delete_action()
+
+Delete multiple ServiceDescriptors at the same time
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.bulk_response_body import BulkResponseBody
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Delete multiple ServiceDescriptors at the same time
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_bulk_delete_action()
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_bulk_delete_action: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**BulkResponseBody**](BulkResponseBody.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_bulk_patch_action**
+> BulkResponseBody otoroshi_controllers_adminapi_services_controller_bulk_patch_action(body)
+
+Update (using json-patch) multiple ServiceDescriptors at the same time
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.bulk_response_body import BulkResponseBody
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    body = "body_example" # str | request body
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update (using json-patch) multiple ServiceDescriptors at the same time
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_bulk_patch_action(body)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_bulk_patch_action: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **str**| request body |
+
+### Return type
+
+[**BulkResponseBody**](BulkResponseBody.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_bulk_update_action**
+> BulkResponseBody otoroshi_controllers_adminapi_services_controller_bulk_update_action(body)
+
+Update multiple ServiceDescriptors at the same time
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.bulk_response_body import BulkResponseBody
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    body = "body_example" # str | request body
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update multiple ServiceDescriptors at the same time
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_bulk_update_action(body)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_bulk_update_action: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **str**| request body |
+
+### Return type
+
+[**BulkResponseBody**](BulkResponseBody.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_create_action**
+> OtoroshiModelsServiceDescriptor otoroshi_controllers_adminapi_services_controller_create_action(otoroshi_models_service_descriptor)
+
+Creates a ServiceDescriptor
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.otoroshi_models_service_descriptor import OtoroshiModelsServiceDescriptor
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    otoroshi_models_service_descriptor = OtoroshiModelsServiceDescriptor(
+        build_mode=True,
+        hosts=[
+            "hosts_example",
+        ],
+        private_app=True,
+        local_scheme="local_scheme_example",
+        auth_config_ref=,
+        issue_cert_ca=,
+        root="root_example",
+        name="name_example",
+        additional_headers={
+            "key": "key_example",
+        },
+        domain="domain_example",
+        client_config=OtoroshiModelsClientConfig(
+            connection_timeout=1,
+            use_circuit_breaker=True,
+            retry_initial_delay=1,
+            proxy=,
+            call_timeout=1,
+            call_and_stream_timeout=1,
+            global_timeout=1,
+            max_errors=1,
+            retries=1,
+            backoff_factor=1,
+            custom_timeouts=[
+                OtoroshiModelsCustomTimeouts(
+                    path="path_example",
+                    call_and_stream_timeout=1,
+                    call_timeout=1,
+                    idle_timeout=1,
+                    global_timeout=1,
+                    connection_timeout=1,
+                ),
+            ],
+            idle_timeout=1,
+            sample_interval=1,
+        ),
+        matching_root=,
+        force_https=True,
+        local_host="local_host_example",
+        send_otoroshi_headers_back=True,
+        health_check=OtoroshiModelsHealthCheck(
+            enabled=True,
+            url="url_example",
+        ),
+        strictly_private=True,
+        detect_api_key_sooner=True,
+        allow_http10=True,
+        subdomain="subdomain_example",
+        paths=[
+            "paths_example",
+        ],
+        strip_path=True,
+        sec_com_algo_challenge_oto_to_back=OtoroshiModelsAlgoSettings(),
+        api_key_constraints=OtoroshiModelsApiKeyConstraints(
+            custom_headers_auth=OtoroshiModelsCustomHeadersAuthConstraints(
+                enabled=True,
+                client_id_header_name=,
+                client_secret_header_name=,
+            ),
+            routing=OtoroshiModelsApiKeyRouteMatcher(
+                one_tag_in=[
+                    "one_tag_in_example",
+                ],
+                none_meta_keys_in=[
+                    "none_meta_keys_in_example",
+                ],
+                one_meta_in={
+                    "key": "key_example",
+                },
+                one_meta_key_in=[
+                    "one_meta_key_in_example",
+                ],
+                all_meta_keys_in=[
+                    "all_meta_keys_in_example",
+                ],
+                none_tag_in=[
+                    "none_tag_in_example",
+                ],
+                all_tags_in=[
+                    "all_tags_in_example",
+                ],
+                all_meta_in={
+                    "key": "key_example",
+                },
+                none_meta_in={
+                    "key": "key_example",
+                },
+            ),
+            client_id_auth=OtoroshiModelsClientIdAuthConstraints(
+                enabled=True,
+                header_name=,
+                query_name=,
+            ),
+            jwt_auth=OtoroshiModelsJwtAuthConstraints(
+                key_pair_signed=True,
+                cookie_name=,
+                query_name=,
+                header_name=,
+                secret_signed=True,
+                max_jwt_lifespan_secs=,
+                enabled=True,
+                include_request_attributes=True,
+            ),
+            basic_auth=OtoroshiModelsBasicAuthConstraints(
+                enabled=True,
+                header_name=,
+                query_name=,
+            ),
+        ),
+        env="env_example",
+        x_forwarded_headers=True,
+        transformer_refs=[
+            "transformer_refs_example",
+        ],
+        enabled=True,
+        gzip=OtoroshiUtilsGzipGzipConfig(
+            compression_level=1,
+            black_list=[
+                "black_list_example",
+            ],
+            chunked_threshold=1,
+            excluded_patterns=[
+                "excluded_patterns_example",
+            ],
+            buffer_size=1,
+            white_list=[
+                "white_list_example",
+            ],
+            enabled=True,
+        ),
+        send_info_token=True,
+        tcp_udp_tunneling=True,
+        remove_headers_out=[
+            "remove_headers_out_example",
+        ],
+        use_akka_http_client=True,
+        maintenance_mode=True,
+        id="id_example",
+        remove_headers_in=[
+            "remove_headers_in_example",
+        ],
+        log_analytics_on_server=True,
+        sec_com_algo_info_token=OtoroshiModelsAlgoSettings(),
+        user_facing=True,
+        transformer_config={},
+        client_validator_ref=,
+        security_excluded_patterns=[
+            "security_excluded_patterns_example",
+        ],
+        ip_filtering=OtoroshiModelsIpFiltering(
+            whitelist=[
+                "whitelist_example",
+            ],
+            blacklist=[
+                "blacklist_example",
+            ],
+        ),
+        targets=[
+            OtoroshiModelsTarget(
+                host="host_example",
+                weight=1,
+                protocol="protocol_example",
+                predicate=OtoroshiModelsTargetPredicate(),
+                ip_address=,
+                mtls_config=OtoroshiUtilsHttpMtlsConfig(
+                    mtls=True,
+                    loose=True,
+                    trust_all=True,
+                    trusted_certs=[
+                        "trusted_certs_example",
+                    ],
+                    certs=[
+                        "certs_example",
+                    ],
+                ),
+                scheme="scheme_example",
+            ),
+        ],
+        redirection=OtoroshiModelsRedirectionSettings(
+            enabled=True,
+            code=1,
+            to="to_example",
+        ),
+        tags=[
+            "tags_example",
+        ],
+        restrictions=OtoroshiModelsRestrictions(
+            forbidden=[
+                OtoroshiModelsRestrictionPath(
+                    method="method_example",
+                    path="path_example",
+                ),
+            ],
+            allowed=[
+                OtoroshiModelsRestrictionPath(
+                    method="method_example",
+                    path="path_example",
+                ),
+            ],
+            not_found=[
+                OtoroshiModelsRestrictionPath(
+                    method="method_example",
+                    path="path_example",
+                ),
+            ],
+            allow_last=True,
+            enabled=True,
+        ),
+        override_host=True,
+        access_validator=OtoroshiScriptAccessValidatorRef(
+            enabled=True,
+            excluded_patterns=[
+                "excluded_patterns_example",
+            ],
+            refs=[
+                "refs_example",
+            ],
+            config={},
+        ),
+        send_state_challenge=True,
+        chaos_config=OtoroshiModelsChaosConfig(
+            bad_responses_fault_config=,
+            large_request_fault_config=,
+            large_response_fault_config=,
+            latency_injection_fault_config=,
+            enabled=True,
+        ),
+        sec_com_info_token_version=OtoroshiModelsSecComInfoTokenVersion("Legacy"),
+        additional_headers_out={
+            "key": "key_example",
+        },
+        sec_com_headers=OtoroshiModelsSecComHeaders(
+            claim_request_name=,
+            state_request_name=,
+            state_response_name=,
+        ),
+        matching_headers={
+            "key": "key_example",
+        },
+        sec_com_algo_challenge_back_to_oto=OtoroshiModelsAlgoSettings(),
+        sec_com_use_same_algo=True,
+        use_new_ws_client=True,
+        sec_com_excluded_patterns=[
+            "sec_com_excluded_patterns_example",
+        ],
+        redirect_to_local=True,
+        enforce_secure_communication=True,
+        missing_only_headers_out={
+            "key": "key_example",
+        },
+        sec_com_settings=OtoroshiModelsAlgoSettings(),
+        handle_legacy_domain=True,
+        canary=OtoroshiModelsCanary(
+            enabled=True,
+            traffic=3.14,
+            targets=[
+                OtoroshiModelsTarget(
+                    host="host_example",
+                    weight=1,
+                    protocol="protocol_example",
+                    predicate=OtoroshiModelsTargetPredicate(),
+                    ip_address=,
+                    mtls_config=OtoroshiUtilsHttpMtlsConfig(
+                        mtls=True,
+                        loose=True,
+                        trust_all=True,
+                        trusted_certs=[
+                            "trusted_certs_example",
+                        ],
+                        certs=[
+                            "certs_example",
+                        ],
+                    ),
+                    scheme="scheme_example",
+                ),
+            ],
+            root="root_example",
+        ),
+        location=OtoroshiModelsEntityLocation(
+            tenant="tenant_example",
+            teams=[
+                "teams_example",
+            ],
+        ),
+        plugins=OtoroshiScriptPluginsPlugins(
+            config={},
+            enabled=True,
+            excluded=[
+                "excluded_example",
+            ],
+            refs=[
+                "refs_example",
+            ],
+        ),
+        sec_com_ttl=3.14,
+        description="description_example",
+        sec_com_version=OtoroshiModelsSecComVersion("V1"),
+        pre_routing=OtoroshiScriptPreRoutingRef(
+            enabled=True,
+            excluded_patterns=[
+                "excluded_patterns_example",
+            ],
+            refs=[
+                "refs_example",
+            ],
+            config={},
+        ),
+        groups=[
+            "groups_example",
+        ],
+        read_only=True,
+        private_patterns=[
+            "private_patterns_example",
+        ],
+        targets_load_balancing=OtoroshiModelsLoadBalancing(
+            type="BestResponseTime",
+            ratio=3.14,
+        ),
+        cors=OtoroshiModelsCorsSettings(
+            enabled=True,
+            allow_credentials=True,
+            max_age=,
+            allow_methods=[
+                "allow_methods_example",
+            ],
+            allow_headers=[
+                "allow_headers_example",
+            ],
+            excluded_patterns=[
+                "excluded_patterns_example",
+            ],
+            expose_headers=[
+                "expose_headers_example",
+            ],
+            allow_origin="allow_origin_example",
+        ),
+        metadata={
+            "key": "key_example",
+        },
+        public_patterns=[
+            "public_patterns_example",
+        ],
+        api=OtoroshiModelsApiDescriptor(
+            expose_api=True,
+            open_api_descriptor_url=,
+        ),
+        missing_only_headers_in={
+            "key": "key_example",
+        },
+        issue_cert=True,
+        headers_verification={
+            "key": "key_example",
+        },
+        jwt_verifier=OtoroshiModelsJwtVerifier(),
+        lets_encrypt=True,
+    ) # OtoroshiModelsServiceDescriptor | request body
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Creates a ServiceDescriptor
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_create_action(otoroshi_models_service_descriptor)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_create_action: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **otoroshi_models_service_descriptor** | [**OtoroshiModelsServiceDescriptor**](OtoroshiModelsServiceDescriptor.md)| request body |
+
+### Return type
+
+[**OtoroshiModelsServiceDescriptor**](OtoroshiModelsServiceDescriptor.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**201** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_create_service_template**
+> OtoroshiModelsErrorTemplate otoroshi_controllers_adminapi_services_controller_create_service_template(service_id, otoroshi_models_error_template)
+
+Creates an error template for the current service
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.otoroshi_models_error_template import OtoroshiModelsErrorTemplate
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    service_id = "serviceId_example" # str | The serviceId param of the target entity
+    otoroshi_models_error_template = OtoroshiModelsErrorTemplate(
+        template50x="template50x_example",
+        template_maintenance="template_maintenance_example",
+        template_build="template_build_example",
+        service_id="service_id_example",
+        messages={
+            "key": "key_example",
+        },
+        template40x="template40x_example",
+    ) # OtoroshiModelsErrorTemplate | request body
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Creates an error template for the current service
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_create_service_template(service_id, otoroshi_models_error_template)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_create_service_template: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| The serviceId param of the target entity |
+ **otoroshi_models_error_template** | [**OtoroshiModelsErrorTemplate**](OtoroshiModelsErrorTemplate.md)| request body |
+
+### Return type
+
+[**OtoroshiModelsErrorTemplate**](OtoroshiModelsErrorTemplate.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_delete_entity_action**
+> OtoroshiModelsServiceDescriptor otoroshi_controllers_adminapi_services_controller_delete_entity_action(id)
+
+Deletes a specific ServiceDescriptor using its id
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.otoroshi_models_service_descriptor import OtoroshiModelsServiceDescriptor
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    id = "id_example" # str | The id param of the target entity
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Deletes a specific ServiceDescriptor using its id
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_delete_entity_action(id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_delete_entity_action: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| The id param of the target entity |
+
+### Return type
+
+[**OtoroshiModelsServiceDescriptor**](OtoroshiModelsServiceDescriptor.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_delete_service_template**
+> Done otoroshi_controllers_adminapi_services_controller_delete_service_template(service_id)
+
+Deletes the error template for the current service
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.done import Done
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    service_id = "serviceId_example" # str | The serviceId param of the target entity
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Deletes the error template for the current service
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_delete_service_template(service_id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_delete_service_template: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| The serviceId param of the target entity |
+
+### Return type
+
+[**Done**](Done.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_find_all_entities_action**
+> [OtoroshiModelsServiceDescriptor] otoroshi_controllers_adminapi_services_controller_find_all_entities_action()
+
+Find all possible ServiceDescriptors entities
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.otoroshi_models_service_descriptor import OtoroshiModelsServiceDescriptor
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Find all possible ServiceDescriptors entities
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_find_all_entities_action()
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_find_all_entities_action: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**[OtoroshiModelsServiceDescriptor]**](OtoroshiModelsServiceDescriptor.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_find_entity_by_id_action**
+> OtoroshiModelsServiceDescriptor otoroshi_controllers_adminapi_services_controller_find_entity_by_id_action(id)
+
+Find a specific ServiceDescriptor using its id
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.otoroshi_models_service_descriptor import OtoroshiModelsServiceDescriptor
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    id = "id_example" # str | The id param of the target entity
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Find a specific ServiceDescriptor using its id
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_find_entity_by_id_action(id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_find_entity_by_id_action: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| The id param of the target entity |
+
+### Return type
+
+[**OtoroshiModelsServiceDescriptor**](OtoroshiModelsServiceDescriptor.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_patch_entity_action**
+> OtoroshiModelsServiceDescriptor otoroshi_controllers_adminapi_services_controller_patch_entity_action(id, otoroshi_models_service_descriptor)
+
+Updates (using json-patch) a specific ServiceDescriptor using its id
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.otoroshi_models_service_descriptor import OtoroshiModelsServiceDescriptor
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    id = "id_example" # str | The id param of the target entity
+    otoroshi_models_service_descriptor = OtoroshiModelsServiceDescriptor(
+        build_mode=True,
+        hosts=[
+            "hosts_example",
+        ],
+        private_app=True,
+        local_scheme="local_scheme_example",
+        auth_config_ref=,
+        issue_cert_ca=,
+        root="root_example",
+        name="name_example",
+        additional_headers={
+            "key": "key_example",
+        },
+        domain="domain_example",
+        client_config=OtoroshiModelsClientConfig(
+            connection_timeout=1,
+            use_circuit_breaker=True,
+            retry_initial_delay=1,
+            proxy=,
+            call_timeout=1,
+            call_and_stream_timeout=1,
+            global_timeout=1,
+            max_errors=1,
+            retries=1,
+            backoff_factor=1,
+            custom_timeouts=[
+                OtoroshiModelsCustomTimeouts(
+                    path="path_example",
+                    call_and_stream_timeout=1,
+                    call_timeout=1,
+                    idle_timeout=1,
+                    global_timeout=1,
+                    connection_timeout=1,
+                ),
+            ],
+            idle_timeout=1,
+            sample_interval=1,
+        ),
+        matching_root=,
+        force_https=True,
+        local_host="local_host_example",
+        send_otoroshi_headers_back=True,
+        health_check=OtoroshiModelsHealthCheck(
+            enabled=True,
+            url="url_example",
+        ),
+        strictly_private=True,
+        detect_api_key_sooner=True,
+        allow_http10=True,
+        subdomain="subdomain_example",
+        paths=[
+            "paths_example",
+        ],
+        strip_path=True,
+        sec_com_algo_challenge_oto_to_back=OtoroshiModelsAlgoSettings(),
+        api_key_constraints=OtoroshiModelsApiKeyConstraints(
+            custom_headers_auth=OtoroshiModelsCustomHeadersAuthConstraints(
+                enabled=True,
+                client_id_header_name=,
+                client_secret_header_name=,
+            ),
+            routing=OtoroshiModelsApiKeyRouteMatcher(
+                one_tag_in=[
+                    "one_tag_in_example",
+                ],
+                none_meta_keys_in=[
+                    "none_meta_keys_in_example",
+                ],
+                one_meta_in={
+                    "key": "key_example",
+                },
+                one_meta_key_in=[
+                    "one_meta_key_in_example",
+                ],
+                all_meta_keys_in=[
+                    "all_meta_keys_in_example",
+                ],
+                none_tag_in=[
+                    "none_tag_in_example",
+                ],
+                all_tags_in=[
+                    "all_tags_in_example",
+                ],
+                all_meta_in={
+                    "key": "key_example",
+                },
+                none_meta_in={
+                    "key": "key_example",
+                },
+            ),
+            client_id_auth=OtoroshiModelsClientIdAuthConstraints(
+                enabled=True,
+                header_name=,
+                query_name=,
+            ),
+            jwt_auth=OtoroshiModelsJwtAuthConstraints(
+                key_pair_signed=True,
+                cookie_name=,
+                query_name=,
+                header_name=,
+                secret_signed=True,
+                max_jwt_lifespan_secs=,
+                enabled=True,
+                include_request_attributes=True,
+            ),
+            basic_auth=OtoroshiModelsBasicAuthConstraints(
+                enabled=True,
+                header_name=,
+                query_name=,
+            ),
+        ),
+        env="env_example",
+        x_forwarded_headers=True,
+        transformer_refs=[
+            "transformer_refs_example",
+        ],
+        enabled=True,
+        gzip=OtoroshiUtilsGzipGzipConfig(
+            compression_level=1,
+            black_list=[
+                "black_list_example",
+            ],
+            chunked_threshold=1,
+            excluded_patterns=[
+                "excluded_patterns_example",
+            ],
+            buffer_size=1,
+            white_list=[
+                "white_list_example",
+            ],
+            enabled=True,
+        ),
+        send_info_token=True,
+        tcp_udp_tunneling=True,
+        remove_headers_out=[
+            "remove_headers_out_example",
+        ],
+        use_akka_http_client=True,
+        maintenance_mode=True,
+        id="id_example",
+        remove_headers_in=[
+            "remove_headers_in_example",
+        ],
+        log_analytics_on_server=True,
+        sec_com_algo_info_token=OtoroshiModelsAlgoSettings(),
+        user_facing=True,
+        transformer_config={},
+        client_validator_ref=,
+        security_excluded_patterns=[
+            "security_excluded_patterns_example",
+        ],
+        ip_filtering=OtoroshiModelsIpFiltering(
+            whitelist=[
+                "whitelist_example",
+            ],
+            blacklist=[
+                "blacklist_example",
+            ],
+        ),
+        targets=[
+            OtoroshiModelsTarget(
+                host="host_example",
+                weight=1,
+                protocol="protocol_example",
+                predicate=OtoroshiModelsTargetPredicate(),
+                ip_address=,
+                mtls_config=OtoroshiUtilsHttpMtlsConfig(
+                    mtls=True,
+                    loose=True,
+                    trust_all=True,
+                    trusted_certs=[
+                        "trusted_certs_example",
+                    ],
+                    certs=[
+                        "certs_example",
+                    ],
+                ),
+                scheme="scheme_example",
+            ),
+        ],
+        redirection=OtoroshiModelsRedirectionSettings(
+            enabled=True,
+            code=1,
+            to="to_example",
+        ),
+        tags=[
+            "tags_example",
+        ],
+        restrictions=OtoroshiModelsRestrictions(
+            forbidden=[
+                OtoroshiModelsRestrictionPath(
+                    method="method_example",
+                    path="path_example",
+                ),
+            ],
+            allowed=[
+                OtoroshiModelsRestrictionPath(
+                    method="method_example",
+                    path="path_example",
+                ),
+            ],
+            not_found=[
+                OtoroshiModelsRestrictionPath(
+                    method="method_example",
+                    path="path_example",
+                ),
+            ],
+            allow_last=True,
+            enabled=True,
+        ),
+        override_host=True,
+        access_validator=OtoroshiScriptAccessValidatorRef(
+            enabled=True,
+            excluded_patterns=[
+                "excluded_patterns_example",
+            ],
+            refs=[
+                "refs_example",
+            ],
+            config={},
+        ),
+        send_state_challenge=True,
+        chaos_config=OtoroshiModelsChaosConfig(
+            bad_responses_fault_config=,
+            large_request_fault_config=,
+            large_response_fault_config=,
+            latency_injection_fault_config=,
+            enabled=True,
+        ),
+        sec_com_info_token_version=OtoroshiModelsSecComInfoTokenVersion("Legacy"),
+        additional_headers_out={
+            "key": "key_example",
+        },
+        sec_com_headers=OtoroshiModelsSecComHeaders(
+            claim_request_name=,
+            state_request_name=,
+            state_response_name=,
+        ),
+        matching_headers={
+            "key": "key_example",
+        },
+        sec_com_algo_challenge_back_to_oto=OtoroshiModelsAlgoSettings(),
+        sec_com_use_same_algo=True,
+        use_new_ws_client=True,
+        sec_com_excluded_patterns=[
+            "sec_com_excluded_patterns_example",
+        ],
+        redirect_to_local=True,
+        enforce_secure_communication=True,
+        missing_only_headers_out={
+            "key": "key_example",
+        },
+        sec_com_settings=OtoroshiModelsAlgoSettings(),
+        handle_legacy_domain=True,
+        canary=OtoroshiModelsCanary(
+            enabled=True,
+            traffic=3.14,
+            targets=[
+                OtoroshiModelsTarget(
+                    host="host_example",
+                    weight=1,
+                    protocol="protocol_example",
+                    predicate=OtoroshiModelsTargetPredicate(),
+                    ip_address=,
+                    mtls_config=OtoroshiUtilsHttpMtlsConfig(
+                        mtls=True,
+                        loose=True,
+                        trust_all=True,
+                        trusted_certs=[
+                            "trusted_certs_example",
+                        ],
+                        certs=[
+                            "certs_example",
+                        ],
+                    ),
+                    scheme="scheme_example",
+                ),
+            ],
+            root="root_example",
+        ),
+        location=OtoroshiModelsEntityLocation(
+            tenant="tenant_example",
+            teams=[
+                "teams_example",
+            ],
+        ),
+        plugins=OtoroshiScriptPluginsPlugins(
+            config={},
+            enabled=True,
+            excluded=[
+                "excluded_example",
+            ],
+            refs=[
+                "refs_example",
+            ],
+        ),
+        sec_com_ttl=3.14,
+        description="description_example",
+        sec_com_version=OtoroshiModelsSecComVersion("V1"),
+        pre_routing=OtoroshiScriptPreRoutingRef(
+            enabled=True,
+            excluded_patterns=[
+                "excluded_patterns_example",
+            ],
+            refs=[
+                "refs_example",
+            ],
+            config={},
+        ),
+        groups=[
+            "groups_example",
+        ],
+        read_only=True,
+        private_patterns=[
+            "private_patterns_example",
+        ],
+        targets_load_balancing=OtoroshiModelsLoadBalancing(
+            type="BestResponseTime",
+            ratio=3.14,
+        ),
+        cors=OtoroshiModelsCorsSettings(
+            enabled=True,
+            allow_credentials=True,
+            max_age=,
+            allow_methods=[
+                "allow_methods_example",
+            ],
+            allow_headers=[
+                "allow_headers_example",
+            ],
+            excluded_patterns=[
+                "excluded_patterns_example",
+            ],
+            expose_headers=[
+                "expose_headers_example",
+            ],
+            allow_origin="allow_origin_example",
+        ),
+        metadata={
+            "key": "key_example",
+        },
+        public_patterns=[
+            "public_patterns_example",
+        ],
+        api=OtoroshiModelsApiDescriptor(
+            expose_api=True,
+            open_api_descriptor_url=,
+        ),
+        missing_only_headers_in={
+            "key": "key_example",
+        },
+        issue_cert=True,
+        headers_verification={
+            "key": "key_example",
+        },
+        jwt_verifier=OtoroshiModelsJwtVerifier(),
+        lets_encrypt=True,
+    ) # OtoroshiModelsServiceDescriptor | request body
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Updates (using json-patch) a specific ServiceDescriptor using its id
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_patch_entity_action(id, otoroshi_models_service_descriptor)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_patch_entity_action: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| The id param of the target entity |
+ **otoroshi_models_service_descriptor** | [**OtoroshiModelsServiceDescriptor**](OtoroshiModelsServiceDescriptor.md)| request body |
+
+### Return type
+
+[**OtoroshiModelsServiceDescriptor**](OtoroshiModelsServiceDescriptor.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_service_add_target**
+> OtoroshiModelsTarget otoroshi_controllers_adminapi_services_controller_service_add_target(service_id, otoroshi_models_target)
+
+Adds a target to the current service
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.otoroshi_models_target import OtoroshiModelsTarget
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    service_id = "serviceId_example" # str | The serviceId param of the target entity
+    otoroshi_models_target = OtoroshiModelsTarget(
+        host="host_example",
+        weight=1,
+        protocol="protocol_example",
+        predicate=OtoroshiModelsTargetPredicate(),
+        ip_address=,
+        mtls_config=OtoroshiUtilsHttpMtlsConfig(
+            mtls=True,
+            loose=True,
+            trust_all=True,
+            trusted_certs=[
+                "trusted_certs_example",
+            ],
+            certs=[
+                "certs_example",
+            ],
+        ),
+        scheme="scheme_example",
+    ) # OtoroshiModelsTarget | request body
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Adds a target to the current service
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_service_add_target(service_id, otoroshi_models_target)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_service_add_target: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| The serviceId param of the target entity |
+ **otoroshi_models_target** | [**OtoroshiModelsTarget**](OtoroshiModelsTarget.md)| request body |
+
+### Return type
+
+[**OtoroshiModelsTarget**](OtoroshiModelsTarget.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_service_delete_target**
+> Done otoroshi_controllers_adminapi_services_controller_service_delete_target(service_id)
+
+Deletes a target to the current service
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.done import Done
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    service_id = "serviceId_example" # str | The serviceId param of the target entity
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Deletes a target to the current service
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_service_delete_target(service_id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_service_delete_target: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| The serviceId param of the target entity |
+
+### Return type
+
+[**Done**](Done.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_service_health**
+> HealthCheckEventList otoroshi_controllers_adminapi_services_controller_service_health(service_id)
+
+Get healthcheck status for the current service
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.health_check_event_list import HealthCheckEventList
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    service_id = "serviceId_example" # str | The serviceId param of the target entity
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get healthcheck status for the current service
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_service_health(service_id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_service_health: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| The serviceId param of the target entity |
+
+### Return type
+
+[**HealthCheckEventList**](HealthCheckEventList.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_service_targets**
+> TargetsList otoroshi_controllers_adminapi_services_controller_service_targets(service_id)
+
+Get targets of the current service
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.targets_list import TargetsList
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    service_id = "serviceId_example" # str | The serviceId param of the target entity
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get targets of the current service
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_service_targets(service_id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_service_targets: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| The serviceId param of the target entity |
+
+### Return type
+
+[**TargetsList**](TargetsList.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_service_template**
+> ErrorTemplateList otoroshi_controllers_adminapi_services_controller_service_template(service_id)
+
+Get the error template for the current service
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_template_list import ErrorTemplateList
+from openapi_client.model.error_response import ErrorResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    service_id = "serviceId_example" # str | The serviceId param of the target entity
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get the error template for the current service
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_service_template(service_id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_service_template: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| The serviceId param of the target entity |
+
+### Return type
+
+[**ErrorTemplateList**](ErrorTemplateList.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_update_entity_action**
+> OtoroshiModelsServiceDescriptor otoroshi_controllers_adminapi_services_controller_update_entity_action(id, otoroshi_models_service_descriptor)
+
+Updates a specific ServiceDescriptor using its id
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.otoroshi_models_service_descriptor import OtoroshiModelsServiceDescriptor
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    id = "id_example" # str | The id param of the target entity
+    otoroshi_models_service_descriptor = OtoroshiModelsServiceDescriptor(
+        build_mode=True,
+        hosts=[
+            "hosts_example",
+        ],
+        private_app=True,
+        local_scheme="local_scheme_example",
+        auth_config_ref=,
+        issue_cert_ca=,
+        root="root_example",
+        name="name_example",
+        additional_headers={
+            "key": "key_example",
+        },
+        domain="domain_example",
+        client_config=OtoroshiModelsClientConfig(
+            connection_timeout=1,
+            use_circuit_breaker=True,
+            retry_initial_delay=1,
+            proxy=,
+            call_timeout=1,
+            call_and_stream_timeout=1,
+            global_timeout=1,
+            max_errors=1,
+            retries=1,
+            backoff_factor=1,
+            custom_timeouts=[
+                OtoroshiModelsCustomTimeouts(
+                    path="path_example",
+                    call_and_stream_timeout=1,
+                    call_timeout=1,
+                    idle_timeout=1,
+                    global_timeout=1,
+                    connection_timeout=1,
+                ),
+            ],
+            idle_timeout=1,
+            sample_interval=1,
+        ),
+        matching_root=,
+        force_https=True,
+        local_host="local_host_example",
+        send_otoroshi_headers_back=True,
+        health_check=OtoroshiModelsHealthCheck(
+            enabled=True,
+            url="url_example",
+        ),
+        strictly_private=True,
+        detect_api_key_sooner=True,
+        allow_http10=True,
+        subdomain="subdomain_example",
+        paths=[
+            "paths_example",
+        ],
+        strip_path=True,
+        sec_com_algo_challenge_oto_to_back=OtoroshiModelsAlgoSettings(),
+        api_key_constraints=OtoroshiModelsApiKeyConstraints(
+            custom_headers_auth=OtoroshiModelsCustomHeadersAuthConstraints(
+                enabled=True,
+                client_id_header_name=,
+                client_secret_header_name=,
+            ),
+            routing=OtoroshiModelsApiKeyRouteMatcher(
+                one_tag_in=[
+                    "one_tag_in_example",
+                ],
+                none_meta_keys_in=[
+                    "none_meta_keys_in_example",
+                ],
+                one_meta_in={
+                    "key": "key_example",
+                },
+                one_meta_key_in=[
+                    "one_meta_key_in_example",
+                ],
+                all_meta_keys_in=[
+                    "all_meta_keys_in_example",
+                ],
+                none_tag_in=[
+                    "none_tag_in_example",
+                ],
+                all_tags_in=[
+                    "all_tags_in_example",
+                ],
+                all_meta_in={
+                    "key": "key_example",
+                },
+                none_meta_in={
+                    "key": "key_example",
+                },
+            ),
+            client_id_auth=OtoroshiModelsClientIdAuthConstraints(
+                enabled=True,
+                header_name=,
+                query_name=,
+            ),
+            jwt_auth=OtoroshiModelsJwtAuthConstraints(
+                key_pair_signed=True,
+                cookie_name=,
+                query_name=,
+                header_name=,
+                secret_signed=True,
+                max_jwt_lifespan_secs=,
+                enabled=True,
+                include_request_attributes=True,
+            ),
+            basic_auth=OtoroshiModelsBasicAuthConstraints(
+                enabled=True,
+                header_name=,
+                query_name=,
+            ),
+        ),
+        env="env_example",
+        x_forwarded_headers=True,
+        transformer_refs=[
+            "transformer_refs_example",
+        ],
+        enabled=True,
+        gzip=OtoroshiUtilsGzipGzipConfig(
+            compression_level=1,
+            black_list=[
+                "black_list_example",
+            ],
+            chunked_threshold=1,
+            excluded_patterns=[
+                "excluded_patterns_example",
+            ],
+            buffer_size=1,
+            white_list=[
+                "white_list_example",
+            ],
+            enabled=True,
+        ),
+        send_info_token=True,
+        tcp_udp_tunneling=True,
+        remove_headers_out=[
+            "remove_headers_out_example",
+        ],
+        use_akka_http_client=True,
+        maintenance_mode=True,
+        id="id_example",
+        remove_headers_in=[
+            "remove_headers_in_example",
+        ],
+        log_analytics_on_server=True,
+        sec_com_algo_info_token=OtoroshiModelsAlgoSettings(),
+        user_facing=True,
+        transformer_config={},
+        client_validator_ref=,
+        security_excluded_patterns=[
+            "security_excluded_patterns_example",
+        ],
+        ip_filtering=OtoroshiModelsIpFiltering(
+            whitelist=[
+                "whitelist_example",
+            ],
+            blacklist=[
+                "blacklist_example",
+            ],
+        ),
+        targets=[
+            OtoroshiModelsTarget(
+                host="host_example",
+                weight=1,
+                protocol="protocol_example",
+                predicate=OtoroshiModelsTargetPredicate(),
+                ip_address=,
+                mtls_config=OtoroshiUtilsHttpMtlsConfig(
+                    mtls=True,
+                    loose=True,
+                    trust_all=True,
+                    trusted_certs=[
+                        "trusted_certs_example",
+                    ],
+                    certs=[
+                        "certs_example",
+                    ],
+                ),
+                scheme="scheme_example",
+            ),
+        ],
+        redirection=OtoroshiModelsRedirectionSettings(
+            enabled=True,
+            code=1,
+            to="to_example",
+        ),
+        tags=[
+            "tags_example",
+        ],
+        restrictions=OtoroshiModelsRestrictions(
+            forbidden=[
+                OtoroshiModelsRestrictionPath(
+                    method="method_example",
+                    path="path_example",
+                ),
+            ],
+            allowed=[
+                OtoroshiModelsRestrictionPath(
+                    method="method_example",
+                    path="path_example",
+                ),
+            ],
+            not_found=[
+                OtoroshiModelsRestrictionPath(
+                    method="method_example",
+                    path="path_example",
+                ),
+            ],
+            allow_last=True,
+            enabled=True,
+        ),
+        override_host=True,
+        access_validator=OtoroshiScriptAccessValidatorRef(
+            enabled=True,
+            excluded_patterns=[
+                "excluded_patterns_example",
+            ],
+            refs=[
+                "refs_example",
+            ],
+            config={},
+        ),
+        send_state_challenge=True,
+        chaos_config=OtoroshiModelsChaosConfig(
+            bad_responses_fault_config=,
+            large_request_fault_config=,
+            large_response_fault_config=,
+            latency_injection_fault_config=,
+            enabled=True,
+        ),
+        sec_com_info_token_version=OtoroshiModelsSecComInfoTokenVersion("Legacy"),
+        additional_headers_out={
+            "key": "key_example",
+        },
+        sec_com_headers=OtoroshiModelsSecComHeaders(
+            claim_request_name=,
+            state_request_name=,
+            state_response_name=,
+        ),
+        matching_headers={
+            "key": "key_example",
+        },
+        sec_com_algo_challenge_back_to_oto=OtoroshiModelsAlgoSettings(),
+        sec_com_use_same_algo=True,
+        use_new_ws_client=True,
+        sec_com_excluded_patterns=[
+            "sec_com_excluded_patterns_example",
+        ],
+        redirect_to_local=True,
+        enforce_secure_communication=True,
+        missing_only_headers_out={
+            "key": "key_example",
+        },
+        sec_com_settings=OtoroshiModelsAlgoSettings(),
+        handle_legacy_domain=True,
+        canary=OtoroshiModelsCanary(
+            enabled=True,
+            traffic=3.14,
+            targets=[
+                OtoroshiModelsTarget(
+                    host="host_example",
+                    weight=1,
+                    protocol="protocol_example",
+                    predicate=OtoroshiModelsTargetPredicate(),
+                    ip_address=,
+                    mtls_config=OtoroshiUtilsHttpMtlsConfig(
+                        mtls=True,
+                        loose=True,
+                        trust_all=True,
+                        trusted_certs=[
+                            "trusted_certs_example",
+                        ],
+                        certs=[
+                            "certs_example",
+                        ],
+                    ),
+                    scheme="scheme_example",
+                ),
+            ],
+            root="root_example",
+        ),
+        location=OtoroshiModelsEntityLocation(
+            tenant="tenant_example",
+            teams=[
+                "teams_example",
+            ],
+        ),
+        plugins=OtoroshiScriptPluginsPlugins(
+            config={},
+            enabled=True,
+            excluded=[
+                "excluded_example",
+            ],
+            refs=[
+                "refs_example",
+            ],
+        ),
+        sec_com_ttl=3.14,
+        description="description_example",
+        sec_com_version=OtoroshiModelsSecComVersion("V1"),
+        pre_routing=OtoroshiScriptPreRoutingRef(
+            enabled=True,
+            excluded_patterns=[
+                "excluded_patterns_example",
+            ],
+            refs=[
+                "refs_example",
+            ],
+            config={},
+        ),
+        groups=[
+            "groups_example",
+        ],
+        read_only=True,
+        private_patterns=[
+            "private_patterns_example",
+        ],
+        targets_load_balancing=OtoroshiModelsLoadBalancing(
+            type="BestResponseTime",
+            ratio=3.14,
+        ),
+        cors=OtoroshiModelsCorsSettings(
+            enabled=True,
+            allow_credentials=True,
+            max_age=,
+            allow_methods=[
+                "allow_methods_example",
+            ],
+            allow_headers=[
+                "allow_headers_example",
+            ],
+            excluded_patterns=[
+                "excluded_patterns_example",
+            ],
+            expose_headers=[
+                "expose_headers_example",
+            ],
+            allow_origin="allow_origin_example",
+        ),
+        metadata={
+            "key": "key_example",
+        },
+        public_patterns=[
+            "public_patterns_example",
+        ],
+        api=OtoroshiModelsApiDescriptor(
+            expose_api=True,
+            open_api_descriptor_url=,
+        ),
+        missing_only_headers_in={
+            "key": "key_example",
+        },
+        issue_cert=True,
+        headers_verification={
+            "key": "key_example",
+        },
+        jwt_verifier=OtoroshiModelsJwtVerifier(),
+        lets_encrypt=True,
+    ) # OtoroshiModelsServiceDescriptor | request body
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Updates a specific ServiceDescriptor using its id
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_update_entity_action(id, otoroshi_models_service_descriptor)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_update_entity_action: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| The id param of the target entity |
+ **otoroshi_models_service_descriptor** | [**OtoroshiModelsServiceDescriptor**](OtoroshiModelsServiceDescriptor.md)| request body |
+
+### Return type
+
+[**OtoroshiModelsServiceDescriptor**](OtoroshiModelsServiceDescriptor.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_update_service_targets**
+> OtoroshiModelsTarget otoroshi_controllers_adminapi_services_controller_update_service_targets(service_id, otoroshi_models_target)
+
+Update the target of the current service
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.otoroshi_models_target import OtoroshiModelsTarget
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    service_id = "serviceId_example" # str | The serviceId param of the target entity
+    otoroshi_models_target = OtoroshiModelsTarget(
+        host="host_example",
+        weight=1,
+        protocol="protocol_example",
+        predicate=OtoroshiModelsTargetPredicate(),
+        ip_address=,
+        mtls_config=OtoroshiUtilsHttpMtlsConfig(
+            mtls=True,
+            loose=True,
+            trust_all=True,
+            trusted_certs=[
+                "trusted_certs_example",
+            ],
+            certs=[
+                "certs_example",
+            ],
+        ),
+        scheme="scheme_example",
+    ) # OtoroshiModelsTarget | request body
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update the target of the current service
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_update_service_targets(service_id, otoroshi_models_target)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_update_service_targets: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| The serviceId param of the target entity |
+ **otoroshi_models_target** | [**OtoroshiModelsTarget**](OtoroshiModelsTarget.md)| request body |
+
+### Return type
+
+[**OtoroshiModelsTarget**](OtoroshiModelsTarget.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_services_controller_update_service_template**
+> OtoroshiModelsErrorTemplate otoroshi_controllers_adminapi_services_controller_update_service_template(service_id, otoroshi_models_error_template)
+
+Update the error template of the current service
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.otoroshi_models_error_template import OtoroshiModelsErrorTemplate
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    service_id = "serviceId_example" # str | The serviceId param of the target entity
+    otoroshi_models_error_template = OtoroshiModelsErrorTemplate(
+        template50x="template50x_example",
+        template_maintenance="template_maintenance_example",
+        template_build="template_build_example",
+        service_id="service_id_example",
+        messages={
+            "key": "key_example",
+        },
+        template40x="template40x_example",
+    ) # OtoroshiModelsErrorTemplate | request body
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update the error template of the current service
+        api_response = api_instance.otoroshi_controllers_adminapi_services_controller_update_service_template(service_id, otoroshi_models_error_template)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_services_controller_update_service_template: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| The serviceId param of the target entity |
+ **otoroshi_models_error_template** | [**OtoroshiModelsErrorTemplate**](OtoroshiModelsErrorTemplate.md)| request body |
+
+### Return type
+
+[**OtoroshiModelsErrorTemplate**](OtoroshiModelsErrorTemplate.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_stats_controller_service_live_stats_services**
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} otoroshi_controllers_adminapi_stats_controller_service_live_stats_services(service_id)
+
+Get live stats for a specific service
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+    service_id = "serviceId_example" # str | the serviceId parameter
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get live stats for a specific service
+        api_response = api_instance.otoroshi_controllers_adminapi_stats_controller_service_live_stats_services(service_id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_stats_controller_service_live_stats_services: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| the serviceId parameter |
+
+### Return type
+
+**{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otoroshi_controllers_adminapi_templates_controller_initiate_service_services**
+> OtoroshiModelsServiceDescriptor otoroshi_controllers_adminapi_templates_controller_initiate_service_services()
+
+Creates a new Service from a template
+
+### Example
+
+* Basic Authentication (otoroshi_auth):
+```python
+import time
+import openapi_client
+from openapi_client.api import services_api
+from openapi_client.model.error_response import ErrorResponse
+from openapi_client.model.otoroshi_models_service_descriptor import OtoroshiModelsServiceDescriptor
+from pprint import pprint
+# Defining the host is optional and defaults to http://otoroshi-api.oto.tools:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://otoroshi-api.oto.tools:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: otoroshi_auth
+configuration = openapi_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = services_api.ServicesApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Creates a new Service from a template
+        api_response = api_instance.otoroshi_controllers_adminapi_templates_controller_initiate_service_services()
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ServicesApi->otoroshi_controllers_adminapi_templates_controller_initiate_service_services: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**OtoroshiModelsServiceDescriptor**](OtoroshiModelsServiceDescriptor.md)
+
+### Authorization
+
+[otoroshi_auth](../README.md#otoroshi_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | You have to provide an Api Key. Api Key can be passed with &#39;Otoroshi-Client-Id&#39; and &#39;Otoroshi-Client-Secret&#39; headers, or use basic http authentication |  -  |
+**400** | Bad resource format. Take another look to the swagger, or open an issue |  -  |
+**404** | Resource not found or does not exist |  -  |
+**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
